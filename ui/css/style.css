@@ -1,0 +1,334 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&display=swap");
+
+.DisableSelection {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+body {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar {
+
+    width: 0.4vw;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    border-radius: 1vw;
+    border: 0.4vw solid whitesmoke;
+
+}
+
+::-webkit-scrollbar-thumb:active {
+
+    border: 0.4vw solid rgb(197, 56, 56);
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    border: 0.4vw solid rgb(197, 56, 56);
+
+}
+
+.Container {
+    display: none;
+    position: absolute;
+    width: 51vw;
+    height: 40vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -50%);
+    overflow-y: auto;
+    padding: 1vw;
+}
+
+.ItemContainer {
+    display: inline-block;
+    width: 11vw;
+    height: 11vw;
+    margin: 0.2vw;
+    border-radius: 1vw;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: rgba(240, 248, 255, 0.15);
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 1vw;
+    color: whitesmoke;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.ItemLabel {
+    display: block;
+    width: 100%;
+    height: 2vw;
+    padding: 0.5vw;
+}
+
+.ItemImage {
+    display: block;
+    width: 100%;
+    height: 9vw;
+    padding: 0.5vw;
+}
+
+.ItemImage > img {
+    width: 8vw;
+    height: 8vw;
+}
+
+.ItemRecipeContainer {
+    display: none;
+    position: absolute;
+    width: 31vw;
+    height: 40vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(35%, -50%);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    padding: 1vw;
+    background-color: rgba(240, 248, 255, 0.15);
+    border-radius: 1vw;
+}
+
+.ItemRecipeCraftingTime {
+    display: inline-block;
+    position: absolute;
+    right: 1vw;
+    background-color: rgb(197, 56, 56);
+    width: auto;
+    height: 1.7vw;
+    padding-right: 0.4vw;
+    padding-left: 0.4vw;
+    border-radius: 0.3vw;
+    line-height: 1.7vw;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.8vw;
+    color: whitesmoke;
+}
+
+.ItemRecipeSuccessRate {
+    display: inline-block;
+    position: absolute;
+    top: 3vw;
+    right: 1vw;
+    padding-right: 0.4vw;
+    padding-left: 0.4vw;
+    background-color: rgb(197, 56, 56);
+    width: auto;
+    height: 1.7vw;
+    border-radius: 0.3vw;
+    line-height: 1.7vw;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.8vw;
+    color: whitesmoke;
+}
+
+.ItemRecipeNeededLevel {
+    display: inline-block;
+    position: absolute;
+    top: 5vw;
+    right: 1vw;
+    padding-right: 0.4vw;
+    padding-left: 0.4vw;
+    background-color: rgb(197, 56, 56);
+    width: auto;
+    height: 1.7vw;
+    border-radius: 0.3vw;
+    line-height: 1.7vw;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.8vw;
+    color: whitesmoke;
+}
+
+.ItemRecipeQuantity {
+    display: inline-block;
+    position: absolute;
+    top: 7vw;
+    right: 1vw;
+    padding-right: 0.4vw;
+    padding-left: 0.4vw;
+    background-color: rgb(197, 56, 56);
+    width: auto;
+    height: 1.7vw;
+    border-radius: 0.3vw;
+    line-height: 1.7vw;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.8vw;
+    color: whitesmoke;
+}
+
+.CountdownTimer {
+    display: inline-block;
+    position: absolute;
+    padding-right: 0.4vw;
+    padding-left: 0.4vw;
+    background-color: rgb(197, 56, 56);
+    width: auto;
+    height: 1.3vw;
+    right: 1vw;
+    border-radius: 0.3vw;
+    line-height: 1.3vw;
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 0.6vw;
+    color: whitesmoke;
+}
+
+.ItemRecipeName {
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.5vw;
+    color: whitesmoke;
+    display: block;
+}
+
+
+.ItemRecipeIcon {
+    text-align: center;
+    display: block;
+}
+
+.ItemRecipeIcon > img {
+    width: 7vw;
+    height: 7vw;
+}
+
+.ItemRecipeDescription {
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-size: 1vw;
+    color: rgb(211, 211, 211);
+    max-height: 2.5vw;
+    overflow-y: auto;
+}
+
+.ItemRecipeContainer > h2 {
+    display: inline-block;
+    font-family: "Rubik", sans-serif;
+    font-size: 1.4vw;
+    color: whitesmoke;
+    margin-top: 0;
+    margin-bottom: 0.5vw;
+    margin-left: 0.5vw;
+}
+
+.ItemRecipeRequirements {
+    font-family: "Rubik", sans-serif;
+    font-size: 1vw;
+    color: whitesmoke;
+    height: 23.6vw;
+    overflow-y: auto;
+}
+
+.ItemRecipeRequirement {
+    line-height: 3vw;
+    vertical-align: middle;
+    height: 3vw;
+    padding-left: 1vw;
+}
+
+.ItemRecipeRequirement > img {
+    display: inline-block;
+    width: 3vw;
+    height: 3vw;
+}
+
+.ItemRecipeRequirement > p {
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    top: -1.1vw;
+}
+
+.CraftButton {
+    display: none;
+    position: absolute;
+    width: 31vw;
+    height: 3.5vw;
+    top: 90%;
+    left: 50%;
+    transform: translate(35%, -50%);
+    overflow-y: hidden;
+    background-color: rgb(197, 56, 56);
+    cursor: pointer;
+    border-radius: 1vw;
+    text-align: center;
+    line-height: 3.5vw;
+    vertical-align: middle;
+    font-family: "Rubik", sans-serif;
+    font-size: 1vw;
+    color: whitesmoke;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.LevelContainer {
+    display: none;
+    position: absolute;
+    width: 31vw;
+    height: 0.4vw;
+    top: 13%;
+    left: 50%;
+    transform: translate(35%, -50%);
+    overflow-y: hidden;
+    background-color: rgb(250, 112, 112);
+    border-radius: 1vw;
+}
+
+.LevelContainerLevel {
+    display: none;
+    position: absolute;
+    width: auto;
+    height: 0.4vw;
+    top: 11%;
+    left: 58%;
+    transform: translate(100%, -50%);
+    font-family: "Rubik", sans-serif;
+    font-size: 0.9vw;
+    color: whitesmoke;
+}
+
+.LevelContainerInner {
+    display: none;
+    position: relative;
+    width: 0%;
+    max-width: 100%;
+    height: 0.4vw;
+    border-radius: 1vw;
+    background-color: rgb(197, 56, 56);
+    outline: 0;
+}
+
+/*
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+*/

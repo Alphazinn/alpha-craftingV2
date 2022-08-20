@@ -1,0 +1,2 @@
+ALTER TABLE `players` ADD `crafting_level` TINYINT NOT NULL DEFAULT 1;
+ALTER TABLE `players` ADD `crafting_xp` SMALLINT NOT NULL DEFAULT 0;
