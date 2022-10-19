@@ -90,11 +90,17 @@ const CraftItem = (data) => {
 };
 
 const UpdateRequirementsArea = () => {
-    var NeededQ = $(".NeededQuantity").text();
-    var NeededQu = parseInt(NeededQ.slice(1));
-    var UserItemQ = $(".UserItemQuantity").text();
-    var UserItemQu = parseInt(UserItemQ.slice(1));
-    $(".UserItemQuantity").html(`x${UserItemQu - NeededQu}`);
+    var RecipeRequirementsArea = document.getElementsByClassName("ItemRecipeRequirements");
+    var SizeOfRecipe = RecipeRequirementsArea[0].getElementsByTagName("div").length;
+    for (let AlphaD = 1; AlphaD <= SizeOfRecipe; AlphaD++) {
+        var NeededQ = $(`.NeededQuantity${AlphaD}`).text();
+        var NeededQu = parseInt(NeededQ.slice(1));
+
+        var UserItemQ = $(`.UserItemQuantity${AlphaD}`).text();
+        var UserItemQu = parseInt(UserItemQ.slice(1));
+
+        $(`.UserItemQuantity${AlphaD}`).html(`x${UserItemQu - NeededQu}`);
+    };
 };
 
 const StartCraftItem = (data) => {
@@ -205,7 +211,7 @@ const CreateMenuItems = (data) => {
 
         for (let RequirementsIndex = 0; RequirementsIndex < CurrentItemData.Requirements.length; RequirementsIndex++) {
             $(".ItemRecipeRequirements").append(`
-                <div class="ItemRecipeRequirement"><img src="${CurrentItemData.Requirements[RequirementsIndex].Icon}"> <p>${CurrentItemData.Requirements[RequirementsIndex].Label} <strong class="NeededQuantity">x${CurrentItemData.Requirements[RequirementsIndex].Amount}</strong> (<strong class="UserItemQuantity">x${GetItemAmount(CurrentItemData.Requirements[RequirementsIndex].ItemName)}</strong>)</p></div>
+                <div id=AlphaRecipeRequirement${RequirementsIndex + 1} class="ItemRecipeRequirement"><img src="${CurrentItemData.Requirements[RequirementsIndex].Icon}"> <p>${CurrentItemData.Requirements[RequirementsIndex].Label} <strong class=NeededQuantity${RequirementsIndex + 1}>x${CurrentItemData.Requirements[RequirementsIndex].Amount}</strong> (<strong class=UserItemQuantity${RequirementsIndex + 1}>x${GetItemAmount(CurrentItemData.Requirements[RequirementsIndex].ItemName)}</strong>)</p></div>
             `);
         };
 
