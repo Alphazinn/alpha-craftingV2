@@ -29,21 +29,27 @@ AddEventHandler("alpha-craftingV2:Server:CraftItemFinal", function(ItemInfo)
 
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local Pointer = 0
     local NeededAmount = 0
     local CanCraft = true
+    local ControlItems = {}
+
+    for d, v in pairs(ItemInfo.Requirements) do
+        ControlItems[v.ItemName] = 0
+    end
 
     for a, l in pairs(Player.PlayerData.items) do
         for p, h in pairs(ItemInfo.Requirements) do
             if l.name == h.ItemName then
-                Pointer = Pointer + l.amount
+                ControlItems[h.ItemName] = ControlItems[h.ItemName] + l.amount
             end
-            NeededAmount = h.Amount
         end
-        if Pointer >= NeededAmount then
-            CanCraft = true
-        else
+    end
+
+    for p, n in pairs(ControlItems) do
+        for z, x in pairs(ItemInfo.Requirements) do
+            if ControlItems[x.ItemName] >= x.Amount then goto alphacn end
             CanCraft = false
+            ::alphacn::
         end
     end
 
@@ -60,6 +66,7 @@ AddEventHandler("alpha-craftingV2:Server:TakeItemsFromPlayer", function(data)
 
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
+    print("server", json.encode(data))
     TriggerClientEvent("alpha-craftingV2:Client:SetCraftBackup", src, data)
     for a, l in pairs(data) do
         if l.RemoveOnCraft == true then
