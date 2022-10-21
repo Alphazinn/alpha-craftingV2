@@ -70,7 +70,11 @@ AddEventHandler("alpha-craftingV2:Server:TakeItemsFromPlayer", function(data)
     TriggerClientEvent("alpha-craftingV2:Client:SetCraftBackup", src, data)
     for a, l in pairs(data) do
         if l.RemoveOnCraft == true then
-            Player.Functions.RemoveItem(l.ItemName, l.Amount)
+            local LAmount = l.Amount
+            while LAmount > 0 do
+                Player.Functions.RemoveItem(l.ItemName, 1)
+                LAmount = LAmount - 1
+            end
         end
     end
 
