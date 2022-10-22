@@ -266,7 +266,7 @@ Config.CraftingStations = { -- All crafting stations config
                 Level = 1, -- Level required to craft the item
                 XP = 10, -- Amount of xp to be awarded after item crafting
                 Jobs = { -- Jobs can craft this item (Leave empty if you want everyone to be able to craft)
-                    "Ambulance"
+                    "ambulance"
                 },
                 Requirements = {
 
